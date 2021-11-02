@@ -67,3 +67,7 @@ Clears the array
 
 void Append(Mector m);
 Adds another array to the main array
+(may not work correctly, I will fix it soon)
+
+int FindCountOf(T object); T - custom type
+Finds the count of occurrences of a given element in an array, if the array type has the == operator overloading
