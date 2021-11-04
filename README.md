@@ -75,6 +75,7 @@ int FindCountOf(T object); T - custom type
 Finds the count of occurrences of a given element in an array, if the array type has the == operator overloading
 
 ///VERSION 1.04///
+
 int getSizeofType();
 Returns the sizeof(T - custom type)
 
