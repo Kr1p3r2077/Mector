@@ -3,6 +3,8 @@ coolest version of Vector, created by me
 
 ///Methods///
 
+///VERSION 1.0///
+
 Constructor(int size = 0, T default_value);
 default values are present, T - custom type
 
@@ -71,3 +73,16 @@ Adds another array to the main array
 
 int FindCountOf(T object); T - custom type
 Finds the count of occurrences of a given element in an array, if the array type has the == operator overloading
+
+///VERSION 1.04///
+int getSizeofType();
+Returns the sizeof(T - custom type)
+
+int getSizeofArray();
+Returns the sizeof(T - custom type) multiplyed by size
+
+void DeleteDynamicMemory(); aka DDM
+Сlears dynamic memory
+
+~Mector();
+Вoes the same as DDM
