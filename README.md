@@ -86,4 +86,4 @@ void DeleteDynamicMemory(); aka DDM
 Сlears dynamic memory
 
 ~Mector();
-Вoes the same as DDM
+Does the same as DDM
