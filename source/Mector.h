@@ -1,6 +1,8 @@
+// 4 nov 2021
+// ver 1.04
 #pragma once
 
-//using namespace std;
+using namespace std;
 
 template <typename T = int>
 class Mector {
@@ -16,6 +18,10 @@ public:
 		for (int i = 0;i < size;i++) {
 			this->arr[i] = place_holder;
 		}
+	}
+
+	~Mector() {
+		delete[] this->arr;
 	}
 
 	T& operator[](const int index) {
@@ -66,6 +72,10 @@ public:
 
 	void Add_start(T object) {
 		Insert(0, object);
+	}
+
+	void DeleteDynamicMemory() {
+		delete [] this->arr;
 	}
 
 	void Del(int position) {
@@ -184,5 +194,13 @@ public:
 		}
 
 		return count;
+	}
+
+	int getSizeofType() {
+		return sizeof(T);
+	}
+
+	int getSizeofArray() {
+		return sizeof(T) * this->size;
 	}
 };
