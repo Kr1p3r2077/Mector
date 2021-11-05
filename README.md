@@ -74,7 +74,7 @@ Adds another array to the main array
 int FindCountOf(T object); T - custom type
 Finds the count of occurrences of a given element in an array, if the array type has the == operator overloading
 
-///VERSION 1.04///
+///VERSION 1.04///  4nov 2021
 
 int getSizeofType();
 Returns the sizeof(T - custom type)
@@ -87,3 +87,16 @@ void DeleteDynamicMemory(); aka DDM
 
 ~Mector();
 Does the same as DDM
+
+///VERSION 1.06///  5nov 2021
+
+Mector(initializer_list<T> li);
+Initializer_list class constructor.
+Now you can use this format for initialization:
+Mector <int> mec{ 5, 1, 23 }; (for example)
+  
+[] operator
+This overloading now doesnt check array out of bounds
+  
+T at(const int index)
+Does the same as [] overloading before 1.06 update
