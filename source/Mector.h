@@ -2,15 +2,18 @@
 // ver 1.04
 #pragma once
 
+#include <initializer_list>
+
 using namespace std;
 
-template <typename T = int>
+template <typename T>
 class Mector {
 private:
 	T* arr;
 	T default_value;
 	int size = 0;
 public:
+
 	Mector(int size = 0, T place_holder = 0) {
 		this->size = size;
 		this->arr = new T[size];
@@ -20,11 +23,26 @@ public:
 		}
 	}
 
+	Mector(initializer_list<T> li) {
+		this->size = li.size();
+		this->arr = new T[size];
+		this->default_value = 0;
+
+		for (int i = 0;i < li.size();i++) {
+			this->arr[i] = li.begin()[i];
+		}
+	}
+
 	~Mector() {
 		delete[] this->arr;
 	}
 
 	T& operator[](const int index) {
+		return this->arr[index];
+	}
+
+
+	T at(const int index) {
 		if (index < this->size) {
 			return this->arr[index];
 		}
@@ -34,15 +52,29 @@ public:
 		return this->size;
 	}
 
+	int getSizeofType() {
+		return sizeof(T);
+	}
+
+	int getSizeofArray() {
+		return sizeof(T) * this->size;
+	}
+
 	void Resize(int newSize = 0) {
 		this->size = newSize;
 	}
+
+
 
 	void Print(bool endline = false) {
 		for (int i = 0;i < this->size;i++) {
 			cout << this->arr[i] << " ";
 		}
 		if (endline) { cout << endl; }
+	}
+
+	void PrintInFile() {
+
 	}
 
 	void Insert(int position, T object) {
@@ -73,6 +105,8 @@ public:
 	void Add_start(T object) {
 		Insert(0, object);
 	}
+
+
 
 	void DeleteDynamicMemory() {
 		delete [] this->arr;
@@ -122,6 +156,8 @@ public:
 			Del(k);
 		}
 	}
+
+
 
 	void Reverse() {
 		T* _arr = new T[this->size];
@@ -196,11 +232,4 @@ public:
 		return count;
 	}
 
-	int getSizeofType() {
-		return sizeof(T);
-	}
-
-	int getSizeofArray() {
-		return sizeof(T) * this->size;
-	}
 };
